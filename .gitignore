@@ -5,3 +5,6 @@ Temp
 UserSettings
 *.vsconfig
 *.sln
+.vs
+obj
+ComputeCommandBuffer.cs
