@@ -3062,7 +3062,6 @@ GameObject:
   m_Component:
   - component: {fileID: 713818415}
   - component: {fileID: 713818416}
-  - component: {fileID: 713818418}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3085,6 +3084,7 @@ Transform:
   m_Children:
   - {fileID: 1447528490}
   - {fileID: 484176270}
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &713818416
@@ -3112,21 +3112,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &713818418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713818414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 309b9fbb81996f24aa0e4ad8adf57670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 713818415}
-  xRotation: 0
 --- !u!1 &753479332
 GameObject:
   m_ObjectHideFlags: 0
@@ -5492,12 +5477,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.44, y: 1.599, z: 0.211}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.63799995, z: 0.211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 713818415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -5731,15 +5716,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_inputActionAsset: {fileID: -944628639613478452, guid: 8aafe0dc58b440b4b9a87b1bbb422854, type: 3}
   m_characterController: {fileID: 713818416}
-  m_cameraTarget: {fileID: 484176270}
+  m_cameraTarget: {fileID: 713818415}
   m_cameraTransform: {fileID: 963194228}
   m_rotationSmoothTime: 0.12
   m_speedChangeRate: 10
   m_moveSpeed: 5
   m_sprintSpeed: 10
-  m_speedRotation: 200
+  m_speedRotation: 10
   m_topClamp: 70
-  m_bottomClamp: -9
+  m_bottomClamp: -30
 --- !u!1001 &3202685210435905458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5801,7 +5786,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 3202685210435905458}
   - {fileID: 713818415}
