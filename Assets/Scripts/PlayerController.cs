@@ -15,6 +15,7 @@ namespace TestTaskProj
         [SerializeField] private float m_speedRotation = 200f;
         [SerializeField] private float m_topClamp = 70f;
         [SerializeField] private float m_bottomClamp = -9f;
+        [SerializeField] private float jumpHeight = 2f;
 
 
         private float m_cameraTargetYaw;
@@ -55,7 +56,7 @@ namespace TestTaskProj
         }
 
         private void OnFireInput(InputAction.CallbackContext context)
-        {
+        { 
             Debug.Log("Try fire!");
         }
 
@@ -64,10 +65,12 @@ namespace TestTaskProj
             Vector2 move = m_moveAction.ReadValue<Vector2>();
             Move(move, false);
 
-            if (m_jumpAction.triggered && m_character.isGrounded)
+            if (m_character.IsGrounded)
             {
-                Jump();
-                Debug.Log("try jump");
+                if (m_jumpAction.triggered)
+                {
+                    Jump();
+                }
             }
 
             ApplyGravity();
@@ -86,16 +89,20 @@ namespace TestTaskProj
 
         private void Jump()
         {
-            playerVelocity.y = Mathf.Sqrt(2f * -Physics.gravity.y * m_jumpAction.ReadValue<float>());
+            // Добавляем фиксированную вертикальную скорость для прыжка
+            playerVelocity.y = Mathf.Sqrt(2f * jumpHeight * -Physics.gravity.y);
         }
 
         private void ApplyGravity()
         {
-            if (m_character.isGrounded && playerVelocity.y < 0)
+            if (m_character.IsGrounded && playerVelocity.y < 0)
             {
-                playerVelocity.y = -2f;
+                playerVelocity.y = -2f; // Сброс скорости при контакте с землей
             }
-            playerVelocity.y += Physics.gravity.y * Time.deltaTime;
+            else
+            {
+                playerVelocity.y += Physics.gravity.y * Time.deltaTime; // Гравитация
+            }
         }
 
         private void CameraRotation(Vector2 look)

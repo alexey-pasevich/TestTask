@@ -16,7 +16,7 @@ namespace TestTaskProj
 
         private float m_rotationVelocity;
         private float m_targetRotation;
-        public bool isGrounded = true;
+        public bool IsGrounded => m_characterController.isGrounded;
 
         public void Move(Vector2 move, bool isSprint, float cameraY)
         {
