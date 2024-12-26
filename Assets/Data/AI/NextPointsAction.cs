@@ -1,27 +1,46 @@
-//using TheKiwiCoder;
+using TheKiwiCoder;
 using UnityEngine;
-using Unity.Behavior;
+//using Unity.Behavior;
 using NUnit.Framework;
 using System.Collections.Generic;
 
 namespace TestTaskProj
 {
-    public class NextPointsAction : Action
+    public class NextPointsAction : ActionNode
     {
-        private List<Vector3> points = new();
-        protected override Status OnStart()
+        private List<Vector3> m_points = new();
+        private int m_index = 0;
+        protected override void OnStart()
         {
-            return Status.Success;
+            var pointsContainer = context.gameObject.GetComponent<PointsContainer>();
+            if (pointsContainer == null)
+            {
+                Debug.LogError("PointsContainer not found");
+                return;
+            }
+            m_points = pointsContainer.GetPoints();
         }
 
-        protected override void OnEnd()
+        protected override void OnStop()
         {
             
         }
 
-        protected override Status OnUpdate()
+        protected override State OnUpdate()
         {
-            return Status.Success;
+            if (m_points.Count == 0)
+            {
+                return State.Failure;
+            }
+
+            if (m_index >= m_points.Count)
+            { 
+                m_index = 0;
+            }
+
+            blackboard.moveToPosition = m_points[m_index++];
+
+            return State.Success;
         }
     }
 }
