@@ -9,9 +9,11 @@ namespace TestTaskProj
 
         private Collider[] m_result = new Collider[4];
 
+        public static int r;
+
         public Transform FindTarget()
         {
-            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_result, -1, QueryTriggerInteraction.Ignore);
+            var count = Physics.OverlapSphereNonAlloc(transform.position, m_radius, m_result, m_layerMask, QueryTriggerInteraction.Ignore);
 
             if (count > 0)
             {

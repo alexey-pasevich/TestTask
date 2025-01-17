@@ -1697,7 +1697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterController: {fileID: 2850311182787361228}
   m_cameraTarget: {fileID: 7841082950084666457}
-  m_moveSpeed: 5
+  m_moveSpeed: 50
   m_sprintSpeed: 10
   m_rotationSmoothTime: 0.12
   m_speedChangeRate: 10

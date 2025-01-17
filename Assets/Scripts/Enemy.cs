@@ -31,5 +31,14 @@ namespace TestTaskProj
                 RandomPoint();
             }
         }
+        private void OnDestroy()
+        {
+            // Находим спавнер и уведомляем его об уничтожении врага
+            EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+            if (spawner != null)
+            {
+                spawner.EnemyDestroyed();
+            }
+        }
     }
 }

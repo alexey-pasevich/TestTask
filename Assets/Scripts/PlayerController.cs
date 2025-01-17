@@ -1,8 +1,8 @@
-using System;
+
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+
 
 namespace TestTaskProj
 {
@@ -10,24 +10,21 @@ namespace TestTaskProj
     {
         [SerializeField] private Character m_character;
         [SerializeField] private InputActionAsset m_inputActionAsset;
-        [SerializeField] private Transform m_cameraTarget;
+
         [SerializeField] private Transform m_cameraTransform;
         [SerializeField] private float m_speedRotation = 200f;
         [SerializeField] private float m_topClamp = 70f;
         [SerializeField] private float m_bottomClamp = -9f;
-        [SerializeField] private float jumpHeight = 2f;
 
 
         private float m_cameraTargetYaw;
         private float m_cameraTargetPitch;
-        private Vector3 playerVelocity;
 
         //Input
         private InputActionMap m_playerMap;
         private InputAction m_moveAction;
         private InputAction m_lookAction;
         private InputAction m_fireAction;
-        private InputAction m_jumpAction;
 
 
         private void Awake()
@@ -36,7 +33,6 @@ namespace TestTaskProj
             m_moveAction = m_playerMap.FindAction("Move");
             m_lookAction = m_playerMap.FindAction("Look");
             m_fireAction = m_playerMap.FindAction("Fire");
-            m_jumpAction = m_playerMap.FindAction("Jump");
             Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -56,7 +52,7 @@ namespace TestTaskProj
         }
 
         private void OnFireInput(InputAction.CallbackContext context)
-        { 
+        {
             Debug.Log("Try fire!");
         }
 
@@ -64,16 +60,6 @@ namespace TestTaskProj
         {
             Vector2 move = m_moveAction.ReadValue<Vector2>();
             Move(move, false);
-
-            if (m_character.IsGrounded)
-            {
-                if (m_jumpAction.triggered)
-                {
-                    Jump();
-                }
-            }
-
-            ApplyGravity();
         }
 
         private void LateUpdate()
@@ -85,24 +71,6 @@ namespace TestTaskProj
         private void Move(Vector2 move, bool isSprint)
         {
             m_character.Move(move, isSprint, m_cameraTransform.eulerAngles.y);
-        }
-
-        private void Jump()
-        {
-            // Добавляем фиксированную вертикальную скорость для прыжка
-            playerVelocity.y = Mathf.Sqrt(2f * jumpHeight * -Physics.gravity.y);
-        }
-
-        private void ApplyGravity()
-        {
-            if (m_character.IsGrounded && playerVelocity.y < 0)
-            {
-                playerVelocity.y = -2f; // Сброс скорости при контакте с землей
-            }
-            else
-            {
-                playerVelocity.y += Physics.gravity.y * Time.deltaTime; // Гравитация
-            }
         }
 
         private void CameraRotation(Vector2 look)

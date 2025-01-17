@@ -18,7 +18,6 @@ MonoBehaviour:
   - rid: 4200190926137589867
   - rid: 4200190926137589870
   - rid: 4200190926137589871
-  - rid: 4200190926137589872
   - rid: 4200190926137589873
   - rid: 4200190926137589874
   - rid: 5199691767783620696
@@ -81,19 +80,6 @@ MonoBehaviour:
         - rid: 4200190926137589874
         - rid: 5199691767783620696
         - rid: 4200190926137589873
-    - rid: 4200190926137589872
-      type: {class: RandomPosition, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 9a1467763237cb145b9cf65e90ce3193
-        position: {x: 1539.3612, y: -60.00007}
-        blackboard:
-          target: {fileID: 0}
-          moveToPosition: {x: 0, y: 0, z: 0}
-        description: Randomly generates a position into the blackboard
-        drawGizmos: 0
-        range: 10
     - rid: 4200190926137589873
       type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
       data:
@@ -113,7 +99,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a6398ba3eee6567469a804864807353b
-        position: {x: 758.84094, y: 487.00003}
+        position: {x: 760.5208, y: 486.99994}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -138,7 +124,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 8cacd3bc8db543c4fac791b34f6a1dd7
-        position: {x: 254.35507, y: 334.9999}
+        position: {x: 253.99998, y: 335}
         blackboard:
           target: {fileID: 0}
           moveToPosition: {x: 0, y: 0, z: 0}
