@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 5996393370859443628}
   - component: {fileID: 7685336419393798388}
   - component: {fileID: 5532550990952941984}
+  - component: {fileID: 6802302621522340353}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -262,7 +263,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7918638316977634887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
@@ -297,3 +298,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_points: []
+--- !u!114 &6802302621522340353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918638316977634887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: 4657899375045673837, guid: 47e19246090baff478e9f9c45f323d86, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 7949084727656317707
+  references:
+    version: 2
+    RefIds:
+    - rid: 7949084727656317707
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 7918638316977634887}

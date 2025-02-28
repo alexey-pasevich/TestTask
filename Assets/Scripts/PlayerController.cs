@@ -33,7 +33,6 @@ namespace TestTaskProj
             m_moveAction = m_playerMap.FindAction("Move");
             m_lookAction = m_playerMap.FindAction("Look");
             m_fireAction = m_playerMap.FindAction("Fire");
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnEnable()
