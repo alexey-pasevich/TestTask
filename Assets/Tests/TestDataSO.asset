@@ -15,6 +15,12 @@ MonoBehaviour:
   characterName: John
   health: 100
   moveSpeed: 50
-  isPlayer: 0
+  isPlayer: 1
   initialPosition: {x: 1, y: 1, z: 1}
   characterColor: {r: 1, g: 0, b: 0, a: 0}
+  prefab: {fileID: 7918638316977634887, guid: 4ba4ecdf389cb254ba0bbecf65351320, type: 3}
+  inventoryIDs: 010000000200000003000000
+  abilities:
+  - Fireball
+  - Dash
+  characterClass: 0
